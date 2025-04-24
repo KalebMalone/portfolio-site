@@ -1,0 +1,27 @@
+import { Link } from 'react-router-dom';
+
+const Header = () => {
+  return (
+    <header className="bg-gray-900 text-white shadow-lg py-4">
+      <nav className="max-w-6xl mx-auto flex justify-between items-center px-6">
+        {/* Logo/Brand Name */}
+        <h1 className="text-2xl font-bold tracking-tight">Kaleb's Portfolio</h1>
+
+        {/* Navigation Links */}
+        <ul className="flex gap-8 text-lg">
+          {['Home', 'About', 'Projects', 'Contact'].map((page) => (
+            <li key={page} className="hover:text-blue-400 transition-colors duration-200">
+              <Link
+                to={`/${page.toLowerCase() === 'home' ? '' : page.toLowerCase()}`}
+              >
+                {page}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
